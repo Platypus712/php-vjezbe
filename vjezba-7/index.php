@@ -20,17 +20,18 @@
     <input type="submit" value="Izračunaj">
   </form>
   <?php
-    $ocjene = array($_POST['ocjena1'], $_POST['ocjena2']);
-    $prosjek = ($ocjene[0] + $ocjene[1]) / 2;
+    if (isset($_POST['ocjena1'])) {$prvaOcjena = $_POST['ocjena1'];}
+    if (isset($_POST['ocjena2'])) {$drugaOcjena = $_POST['ocjena2'];}
+    $prosjek = ($prvaOcjena + $drugaOcjena) / 2;
 
-    if ($ocjene[0] < 1 || $ocjene[0] > 5 || $ocjene[1] < 1 || $ocjene[1] > 5 ) {
+    if ($prvaOcjena < 1 || $prvaOcjena > 5 || $drugaOcjena < 1 || $drugaOcjena > 5 ) {
       print 'Krivi unos';
-    } else if ($ocjene[0] == 1 || $ocjene[1] == 1 ) {
+    } else if ($prvaOcjena == 1 || $drugaOcjena == 1 ) {
       print 'Jedan od kolokvija je negativan i zbog toga je zaključna ocjena 1.';
     } else {
       print '
-      <p>Ocjena I kolokvija: '.$ocjene[0].'</p>
-      <p>Ocjena II kolokvija: '.$ocjene[1].'</p>
+      <p>Ocjena I kolokvija: '.$prvaOcjena.'</p>
+      <p>Ocjena II kolokvija: '.$drugaOcjena.'</p>
       <hr>
       <p>Srednja ocjena iz predmeta: '.$prosjek.'</p>
       <p>Konačna ocjena iz predmeta: '.round($prosjek).'</p>';

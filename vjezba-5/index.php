@@ -20,8 +20,8 @@
         print '<h2 style="color:green;">Pogodak, probaj ponovno!</h2>';
       } else {
         print '<h2 style="color:red;">Krivo, probaj ponovno!</h2>';
+        print '<h3>Zamišljeni broj je bio '.$randomNumber.'</h3>';
       }
-      print '<h3>Zamišljeni broj je bio '.$randomNumber.'</h3>';
     }
   
   
